@@ -1,0 +1,22 @@
+{"question": "How long do I have to submit an expense claim?", "expected": "Expense policy"}
+{"question": "What is the daily limit for meals on a business trip?", "expected": "Expense policy"}
+{"question": "Do I need approval before buying something that costs 1500 euros?", "expected": "Expense policy"}
+{"question": "How many days a week can I work from home?", "expected": "Remote work policy"}
+{"question": "Is there an allowance for a home office desk and chair?", "expected": "Remote work policy"}
+{"question": "Can I work from another country for two months?", "expected": "Remote work policy"}
+{"question": "How many vacation days do full-time employees get?", "expected": "Annual leave"}
+{"question": "Can unused leave days be carried over to next year?", "expected": "Annual leave"}
+{"question": "When do I need a doctor's note for sick leave?", "expected": "Annual leave"}
+{"question": "What should I do if I receive a phishing email?", "expected": "Security incident response"}
+{"question": "I lost my laptop, who do I tell and how quickly?", "expected": "Security incident response"}
+{"question": "How long must passwords be for systems outside single sign-on?", "expected": "Password and access policy"}
+{"question": "How long does just-in-time production access last?", "expected": "Password and access policy"}
+{"question": "Up to what amount can a support agent approve a refund?", "expected": "Customer refund process"}
+{"question": "How quickly are approved refunds paid back to customers?", "expected": "Customer refund process"}
+{"question": "What format does a tracking code have?", "expected": "Shipment tracking and delays"}
+{"question": "Are customs delays covered by the late delivery guarantee?", "expected": "Shipment tracking and delays"}
+{"question": "What should a new hire finish in their first week?", "expected": "Onboarding checklist"}
+{"question": "How long is the probation period?", "expected": "Onboarding checklist"}
+{"question": "What is the parental leave policy?", "expected": null}
+{"question": "Which stock exchange is the company listed on?", "expected": null}
+{"question": "What is the office dress code?", "expected": null}
