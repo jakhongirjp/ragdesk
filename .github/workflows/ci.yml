@@ -63,7 +63,7 @@ jobs:
           cache: pip
       - run: pip install -e .
       - run: ragdesk-eval --k 5 --min-recall 0.9 --min-abstention 0.66 | tee eval.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: eval-report
           path: eval.json
