@@ -215,8 +215,14 @@ issue rather than hidden by lowering the threshold.
 
 ## Documentation
 
-- [Architecture decision records](docs/adr)
-- [Engineering docs](docs) (requirements, security, operations, roadmap)
+| Document | Contents |
+|---|---|
+| [Product](docs/product.md) | Vision, business problem, business and technical requirements, workflows |
+| [Engineering](docs/engineering.md) | Boundaries, security, performance, observability, DR, DevOps, testing |
+| [Roadmap](docs/roadmap.md) | Ten milestones and the release plan |
+| [CTO review checklist](docs/cto-review-checklist.md) | Honest status against production-readiness criteria |
+| [ADRs](docs/adr) | Architecture decisions |
+| [Contributing](CONTRIBUTING.md) | Branching, commits, labels, board, releases |
 
 ## License
 
