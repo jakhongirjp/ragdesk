@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ragdesk
+      POSTGRES_PASSWORD: ragdesk
+      POSTGRES_DB: ragdesk
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ragdesk"]
+      interval: 2s
+      retries: 20
+    volumes: [pgdata:/var/lib/postgresql/data]
+
+  api:
+    build: .
+    depends_on:
+      postgres: { condition: service_healthy }
+    environment:
+      RAGDESK_DATABASE_URL: postgresql://ragdesk:ragdesk@postgres:5432/ragdesk
+      # Set RAGDESK_GENERATOR=claude and ANTHROPIC_API_KEY to use Claude for answers.
+      RAGDESK_GENERATOR: ${RAGDESK_GENERATOR:-extractive}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    ports: ["8000:8000"]
+
+volumes:
+  pgdata:
