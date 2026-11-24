@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ragdesk"
+version = "0.1.0"
+description = "Grounded question answering over a company's own documents, with citations"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+  "anthropic>=2.13,<3",
+  "fastapi>=0.165,<1",
+  "httpx>=0.28,<1",
+  "numpy>=2.0,<3",
+  "pgvector>=0.5,<1",
+  "prometheus-client>=0.23,<1",
+  "psycopg[binary,pool]>=3.3,<4",
+  "pydantic>=2.14,<3",
+  "pydantic-settings>=2.12,<3",
+  "uvicorn[standard]>=0.38,<1",
+]
+
+[project.optional-dependencies]
+dev = ["mypy>=2.4", "pytest>=9", "pytest-asyncio>=1.3", "ruff>=0.17"]
+
+[project.scripts]
+ragdesk-admin = "ragdesk.admin:main"
+ragdesk-eval = "ragdesk.evaluation.run:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ragdesk"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF", "ASYNC"]
+# Line length is the formatter's job; long SQL and prose literals are left intact.
+ignore = ["S101", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["ragdesk"]
+mypy_path = "src"
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["pgvector.*"]
+ignore_missing_imports = true
